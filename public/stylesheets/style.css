@@ -1,0 +1,269 @@
+/* =========================
+   LYRAE - ESTILO PRINCIPAL
+========================= */
+
+
+body {
+
+    margin: 0;
+    padding: 0;
+
+    background-image: url("/images/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+
+    font-family: Arial, sans-serif;
+
+    color: #36527a;
+
+}
+
+
+/* =========================
+   DECORAÇÃO DO TOPO
+========================= */
+
+.top-decoration {
+
+    height: 35px;
+
+    background: rgba(255,255,255,0.85);
+
+    border-bottom: 3px dotted #8bbce8;
+
+}
+
+
+
+/* =========================
+   HEADER
+========================= */
+
+
+.site-header {
+
+    text-align: center;
+
+    padding: 45px 20px 35px;
+
+}
+
+
+
+.site-header h1 {
+
+    margin: 0;
+
+    font-size: 60px;
+
+    color: #4a6fa5;
+
+    font-family: Georgia, serif;
+
+    text-shadow: 2px 2px white;
+
+}
+
+
+
+.site-header p {
+
+    font-size: 18px;
+
+    margin-top: 10px;
+
+    color: #36527a;
+
+}
+
+
+
+/* =========================
+   LAYOUT 3 COLUNAS
+========================= */
+
+
+.blog-container {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 30px auto;
+
+    display: grid;
+
+    grid-template-columns: 240px minmax(400px, 1fr) 240px;
+
+    gap: 25px;
+
+    align-items: start;
+
+}
+
+
+
+/* =========================
+   CAIXAS LATERAIS
+========================= */
+
+
+.box {
+
+    background: rgba(255,255,255,0.88);
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+    border: 2px dashed #8bbce8;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.12);
+
+    backdrop-filter: blur(3px);
+
+    margin-bottom: 25px;
+
+}
+
+
+
+.box h2 {
+
+    margin-top: 0;
+
+    color: #4a6fa5;
+
+    font-size: 22px;
+
+}
+
+
+
+.box p,
+.box a {
+
+    color: #36527a;
+
+    line-height: 1.6;
+
+}
+
+
+
+/* =========================
+   ÁREA DOS POSTS
+========================= */
+
+
+.post {
+
+    background: rgba(255,255,255,0.92);
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.10);
+
+}
+
+
+
+.post h2 {
+
+    margin-top: 0;
+
+    color: #4169a1;
+
+    font-size: 28px;
+
+}
+
+
+
+.post p {
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+}
+
+
+
+/* =========================
+   IMAGENS DOS POSTS
+========================= */
+
+
+.post img {
+
+    max-width: 100%;
+
+    border-radius: 12px;
+
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+
+footer {
+
+    text-align: center;
+
+    padding: 40px;
+
+    margin-top: 50px;
+
+    color: #36527a;
+
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:900px){
+
+
+    .blog-container {
+
+        grid-template-columns: 1fr;
+
+        width: 90%;
+
+    }
+
+
+    .site-header h1 {
+
+        font-size: 45px;
+
+    }
+
+
+}
+
+body {
+    font-family: "DotGothic16", monospace;
+}
+
+.stamp {
+    width: 99px;
+    height: 56px;
+    margin: 5px;
+    image-rendering: pixelated;
+}
