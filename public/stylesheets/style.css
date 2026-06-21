@@ -1,7 +1,6 @@
-/* =========================
+/* ========================= 
    LYRAE - ESTILO PRINCIPAL
 ========================= */
-
 
 body {
 
@@ -13,7 +12,7 @@ body {
     background-attachment: fixed;
     background-position: center;
 
-    font-family: Arial, sans-serif;
+    font-family: "DotGothic16", monospace;
 
     color: #36527a;
 
@@ -28,9 +27,9 @@ body {
 
     height: 35px;
 
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.7);
 
-    border-bottom: 3px dotted #8bbce8;
+    border-bottom: 2px solid rgba(130,190,230,0.5);
 
 }
 
@@ -59,9 +58,11 @@ body {
 
     color: #4a6fa5;
 
-    font-family: Georgia, serif;
+    font-family: "DotGothic16", monospace;
 
-    text-shadow: 2px 2px white;
+    text-shadow:
+    2px 2px white,
+    4px 4px rgba(80,130,200,0.3);
 
 }
 
@@ -72,8 +73,6 @@ body {
     font-size: 18px;
 
     margin-top: 10px;
-
-    color: #36527a;
 
 }
 
@@ -94,37 +93,67 @@ body {
 
     display: grid;
 
-    grid-template-columns: 240px minmax(400px, 1fr) 240px;
+    grid-template-columns: 240px minmax(400px,1fr) 240px;
 
     gap: 25px;
 
-    align-items: start;
+    align-items:start;
 
 }
 
 
 
 /* =========================
-   CAIXAS LATERAIS
+   CAIXAS FRUTIGER AERO
 ========================= */
 
 
 .box {
 
-    background: rgba(255,255,255,0.88);
 
-    padding: 22px;
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,0.95),
+        rgba(190,230,255,0.75)
+    );
 
-    border-radius: 15px;
 
-    border: 2px dashed #8bbce8;
+    padding:22px;
+
+
+    border-radius:8px;
+
+
+    border:
+
+    2px solid rgba(255,255,255,0.9);
+
+
 
     box-shadow:
-        0 8px 20px rgba(0,0,0,0.12);
 
-    backdrop-filter: blur(3px);
+    inset 0 3px 8px rgba(255,255,255,0.9),
 
-    margin-bottom: 25px;
+    0 6px 15px rgba(40,90,150,0.2);
+
+
+
+    backdrop-filter: blur(8px);
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+.box:hover {
+
+    transform: translateY(-3px);
+
+    transition:0.2s;
 
 }
 
@@ -132,11 +161,15 @@ body {
 
 .box h2 {
 
-    margin-top: 0;
 
-    color: #4a6fa5;
+    margin-top:0;
 
-    font-size: 22px;
+
+    color:#4a6fa5;
+
+
+    font-size:22px;
+
 
 }
 
@@ -145,31 +178,62 @@ body {
 .box p,
 .box a {
 
-    color: #36527a;
 
-    line-height: 1.6;
+    color:#36527a;
+
+    line-height:1.7;
 
 }
 
 
 
+
+
 /* =========================
-   ÁREA DOS POSTS
+   POSTS
 ========================= */
 
 
 .post {
 
-    background: rgba(255,255,255,0.92);
 
-    padding: 30px;
+    background:
 
-    border-radius: 18px;
+    linear-gradient(
 
-    margin-bottom: 25px;
+    145deg,
+
+    rgba(255,255,255,0.96),
+
+    rgba(210,240,255,0.85)
+
+    );
+
+
+    padding:30px;
+
+
+    border-radius:10px;
+
+
+    margin-bottom:25px;
+
+
+
+    border:
+
+    2px solid rgba(255,255,255,0.8);
+
+
 
     box-shadow:
-        0 8px 20px rgba(0,0,0,0.10);
+
+
+    inset 0 4px 10px rgba(255,255,255,0.9),
+
+
+    0 8px 18px rgba(50,100,160,0.2);
+
 
 }
 
@@ -177,11 +241,15 @@ body {
 
 .post h2 {
 
-    margin-top: 0;
 
-    color: #4169a1;
+    margin-top:0;
 
-    font-size: 28px;
+
+    color:#4169a1;
+
+
+    font-size:28px;
+
 
 }
 
@@ -189,11 +257,14 @@ body {
 
 .post p {
 
-    font-size: 16px;
 
-    line-height: 1.7;
+    font-size:16px;
+
+    line-height:1.8;
 
 }
+
+
 
 
 
@@ -204,11 +275,36 @@ body {
 
 .post img {
 
-    max-width: 100%;
+    max-width:100%;
 
-    border-radius: 12px;
+    border-radius:8px;
 
 }
+
+
+
+
+
+/* =========================
+   STAMPS
+========================= */
+
+
+.stamp {
+
+
+    width:99px;
+
+    height:56px;
+
+    margin:5px;
+
+
+    image-rendering:pixelated;
+
+}
+
+
 
 
 
@@ -219,15 +315,21 @@ body {
 
 footer {
 
-    text-align: center;
 
-    padding: 40px;
+    text-align:center;
 
-    margin-top: 50px;
 
-    color: #36527a;
+    padding:40px;
+
+
+    margin-top:50px;
+
+
+    color:#36527a;
+
 
 }
+
 
 
 
@@ -241,29 +343,24 @@ footer {
 
     .blog-container {
 
-        grid-template-columns: 1fr;
 
-        width: 90%;
+        grid-template-columns:1fr;
+
+
+        width:90%;
+
 
     }
+
 
 
     .site-header h1 {
 
-        font-size: 45px;
+
+        font-size:45px;
+
 
     }
 
 
-}
-
-body {
-    font-family: "DotGothic16", monospace;
-}
-
-.stamp {
-    width: 99px;
-    height: 56px;
-    margin: 5px;
-    image-rendering: pixelated;
 }
