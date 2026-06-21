@@ -1,12 +1,40 @@
 const express = require("express");
 const router = express.Router();
 
+const Post = require("../models/posts");
 
-router.get("/", (req, res) => {
 
-    res.render("index");
+
+router.get("/", async (req, res) => {
+
+    try {
+
+
+        const posts = await Post.find()
+            .sort({ data: -1 })
+            .limit(3);
+
+
+
+        res.render("index", {
+            posts: posts
+        });
+
+
+
+    } catch (err) {
+
+
+        console.log(err);
+
+        res.status(500)
+            .send("Erro ao carregar página inicial");
+
+
+    }
 
 });
+
 
 
 module.exports = router;

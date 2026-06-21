@@ -30,6 +30,7 @@
 
             <p><a href="/">início</a></p>
             <p><a href="#">sobre mim</a></p>
+            <p><a href="/posts">posts</a></p>
             <p><a href="#">galeria</a></p>
             <p><a href="#">arquivo</a></p>
 
@@ -60,6 +61,7 @@
     <main>
 
 
+
         <div class="post">
 
             <h2>bem-vindo ao lyrae</h2>
@@ -75,19 +77,79 @@
 
 
 
-        <div class="post">
 
-            <h2>primeiro post</h2>
+        <!-- POSTS DO MONGODB -->
 
-            <p>
-                em breve um novo post...
-            </p>
+        <% if(posts && posts.length > 0) { %>
 
-        </div>
+
+            <% posts.forEach(post => { %>
+
+
+                <div class="post">
+
+
+                    <h2>
+                        <%= post.titulo %>
+                    </h2>
+
+
+
+                    <p>
+                        <%= post.texto %>
+                    </p>
+
+
+
+                    <% if(post.imagem) { %>
+
+                        <img 
+                            src="<%= post.imagem %>" 
+                            class="post-image"
+                            alt="imagem do post"
+                        >
+
+                    <% } %>
+
+
+
+                    <small>
+                        <%= post.data.toLocaleDateString("pt-BR") %>
+                    </small>
+
+
+                </div>
+
+
+            <% }) %>
+
+
+
+        <% } else { %>
+
+
+
+            <div class="post">
+
+                <h2>nenhum post ainda</h2>
+
+                <p>
+                    em breve o lyrae vai ter posts ✦
+                </p>
+
+            </div>
+
+
+
+        <% } %>
+
+
 
 
 
     </main>
+
+
 
 
 
@@ -125,6 +187,8 @@
             <p>inspo</p>
 
         </div>
+
+
 
 
 

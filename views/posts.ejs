@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Posts - Lyrae</title>
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+</head>
+
+
+<body>
+
+
+    <%- include("partials/header") %>
+
+
+    <main class="posts-page">
+
+
+        <h1>✦ posts ✦</h1>
+
+
+        <!-- FORMULÁRIO DE NOVO POST -->
+
+        <section class="novo-post">
+
+            <h2>Novo post</h2>
+
+
+            <form action="/posts/novo" method="POST">
+
+
+                <input 
+                    type="text"
+                    name="titulo"
+                    placeholder="Título do post"
+                    required
+                >
+
+
+                <textarea
+                    name="texto"
+                    placeholder="Escreva o conteúdo..."
+                    required
+                ></textarea>
+
+
+                <input
+                    type="text"
+                    name="imagem"
+                    placeholder="URL da imagem (opcional)"
+                >
+
+
+                <button type="submit">
+                    Publicar
+                </button>
+
+
+            </form>
+
+
+        </section>
+
+
+
+
+        <!-- POSTS DO BANCO -->
+
+
+        <section class="lista-posts">
+
+
+            <% if(posts.length === 0) { %>
+
+
+                <div class="post-card">
+
+                    <h2>nenhum post ainda</h2>
+
+                    <p>
+                        em breve o lyrae vai ter posts ✦
+                    </p>
+
+                </div>
+
+
+            <% } %>
+
+
+
+
+
+            <% posts.forEach(post => { %>
+
+
+                <article class="post-card">
+
+
+                    <h2>
+                        <%= post.titulo %>
+                    </h2>
+
+
+                    <p>
+                        <%= post.texto %>
+                    </p>
+
+
+
+                    <% if(post.imagem) { %>
+
+                        <img 
+                            src="<%= post.imagem %>"
+                            alt="imagem do post"
+                        >
+
+                    <% } %>
+
+
+
+                    <small>
+                        <%= post.data.toLocaleDateString("pt-BR") %>
+                    </small>
+
+
+
+                    <br>
+
+
+                    <a href="/posts/apagar/<%= post._id %>">
+                        apagar
+                    </a>
+
+
+                </article>
+
+
+            <% }) %>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <%- include("partials/footer") %>
+
+
+</body>
+
+</html>

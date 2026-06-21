@@ -364,3 +364,131 @@ footer {
 
 
 }
+
+/* POSTS */
+
+.posts-page {
+    padding: 50px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+
+.posts-page h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+
+.novo-post {
+
+    background: rgba(255,255,255,0.7);
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    margin: 40px 0;
+
+}
+
+
+.novo-post form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+}
+
+
+.novo-post input,
+.novo-post textarea {
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid #aaa;
+
+    font-size: 16px;
+
+}
+
+
+.novo-post textarea {
+
+    min-height: 150px;
+
+}
+
+
+.novo-post button {
+
+    padding: 12px;
+
+    border-radius: 20px;
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+
+.lista-posts {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+}
+
+
+.post-card {
+
+    background: rgba(255,255,255,0.75);
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    width: 300px;
+
+}
+
+
+.post-card img {
+
+    max-width: 100%;
+
+    border-radius: 15px;
+
+}
+
+
+header {
+
+    padding: 20px;
+
+}
+
+
+nav {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+
+nav a {
+
+    text-decoration: none;
+
+}

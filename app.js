@@ -1,14 +1,20 @@
-
 require("dotenv").config();
+
+require("./database/db");
+
 
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const session = require("express-session");
 
+
 const indexRouter = require("./routes/index");
+const postsRouter = require("./routes/posts");
+
 
 const app = express();
+
 
 
 // =========================
@@ -16,7 +22,10 @@ const app = express();
 // =========================
 
 app.set("views", path.join(__dirname, "views"));
+
 app.set("view engine", "ejs");
+
+
 
 
 // =========================
@@ -25,15 +34,20 @@ app.set("view engine", "ejs");
 
 app.use(cors());
 
+
 app.use(express.json());
 
+
 app.use(express.urlencoded({
-  extended: false
+    extended: false
 }));
 
+
 app.use(express.static(
-  path.join(__dirname, "public")
+    path.join(__dirname, "public")
 ));
+
+
 
 
 // =========================
@@ -42,17 +56,19 @@ app.use(express.static(
 
 app.use(session({
 
-  secret: process.env.SESSION_SECRET || "lyra-secret",
+    secret: process.env.SESSION_SECRET || "lyrae-secret",
 
-  resave: false,
+    resave: false,
 
-  saveUninitialized: false,
+    saveUninitialized: false,
 
-  cookie: {
-    httpOnly: true
-  }
+    cookie: {
+        httpOnly: true
+    }
 
 }));
+
+
 
 
 // =========================
@@ -60,6 +76,9 @@ app.use(session({
 // =========================
 
 app.use("/", indexRouter);
+app.use("/posts", postsRouter);
+
+
 
 
 // =========================
@@ -68,9 +87,11 @@ app.use("/", indexRouter);
 
 app.use((req, res) => {
 
-  res.status(404).send("Página não encontrada");
+    res.status(404).send("Página não encontrada");
 
 });
+
+
 
 
 // =========================
