@@ -1,4 +1,4 @@
-/* ========================= 
+/* =========================
    LYRAE - ESTILO PRINCIPAL
 ========================= */
 
@@ -20,7 +20,7 @@ body {
 
 
 /* =========================
-   DECORAÇÃO DO TOPO
+   TOPO
 ========================= */
 
 .top-decoration {
@@ -35,6 +35,7 @@ body {
 
 
 
+
 /* =========================
    HEADER
 ========================= */
@@ -42,9 +43,9 @@ body {
 
 .site-header {
 
-    text-align: center;
+    text-align:center;
 
-    padding: 45px 20px 35px;
+    padding:45px 20px 35px;
 
 }
 
@@ -52,13 +53,11 @@ body {
 
 .site-header h1 {
 
-    margin: 0;
+    margin:0;
 
-    font-size: 60px;
+    font-size:60px;
 
-    color: #4a6fa5;
-
-    font-family: "DotGothic16", monospace;
+    color:#4a6fa5;
 
     text-shadow:
     2px 2px white,
@@ -70,32 +69,33 @@ body {
 
 .site-header p {
 
-    font-size: 18px;
-
-    margin-top: 10px;
+    font-size:18px;
 
 }
 
 
 
+
+
 /* =========================
-   LAYOUT 3 COLUNAS
+   HOME - 3 COLUNAS
 ========================= */
 
 
 .blog-container {
 
-    width: 90%;
+    width:90%;
 
-    max-width: 1200px;
+    max-width:1200px;
 
-    margin: 30px auto;
+    margin:30px auto;
 
-    display: grid;
+    display:grid;
 
-    grid-template-columns: 240px minmax(400px,1fr) 240px;
+    grid-template-columns:
+    240px minmax(400px,1fr) 240px;
 
-    gap: 25px;
+    gap:25px;
 
     align-items:start;
 
@@ -104,7 +104,7 @@ body {
 
 
 /* =========================
-   CAIXAS FRUTIGER AERO
+   CAIXAS LATERAIS
 ========================= */
 
 
@@ -125,9 +125,7 @@ body {
     border-radius:8px;
 
 
-    border:
-
-    2px solid rgba(255,255,255,0.9);
+    border:2px solid rgba(255,255,255,0.9);
 
 
 
@@ -139,7 +137,7 @@ body {
 
 
 
-    backdrop-filter: blur(8px);
+    backdrop-filter:blur(8px);
 
 
     margin-bottom:25px;
@@ -149,42 +147,24 @@ body {
 
 
 
-.box:hover {
-
-    transform: translateY(-3px);
-
-    transition:0.2s;
-
-}
-
-
-
 .box h2 {
-
 
     margin-top:0;
 
-
     color:#4a6fa5;
-
-
-    font-size:22px;
-
 
 }
 
 
 
-.box p,
-.box a {
-
+.box a,
+.box p {
 
     color:#36527a;
 
     line-height:1.7;
 
 }
-
 
 
 
@@ -200,39 +180,29 @@ body {
     background:
 
     linear-gradient(
-
-    145deg,
-
-    rgba(255,255,255,0.96),
-
-    rgba(210,240,255,0.85)
-
+        145deg,
+        rgba(255,255,255,0.96),
+        rgba(210,240,255,0.85)
     );
 
 
     padding:30px;
 
 
-    border-radius:10px;
+    border-radius:15px;
 
 
-    margin-bottom:25px;
-
-
-
-    border:
-
-    2px solid rgba(255,255,255,0.8);
-
+    border:2px solid rgba(255,255,255,0.8);
 
 
     box-shadow:
 
-
     inset 0 4px 10px rgba(255,255,255,0.9),
 
-
     0 8px 18px rgba(50,100,160,0.2);
+
+
+    margin-bottom:25px;
 
 
 }
@@ -241,24 +211,15 @@ body {
 
 .post h2 {
 
-
-    margin-top:0;
-
-
     color:#4169a1;
 
-
     font-size:28px;
-
 
 }
 
 
 
 .post p {
-
-
-    font-size:16px;
 
     line-height:1.8;
 
@@ -267,17 +228,342 @@ body {
 
 
 
-
-/* =========================
-   IMAGENS DOS POSTS
-========================= */
-
-
-.post img {
+.post img,
+.post-image {
 
     max-width:100%;
 
-    border-radius:8px;
+    border-radius:10px;
+
+}
+
+
+
+
+/* =========================
+   PAGINA DE POSTS
+========================= */
+
+
+.posts-page {
+
+    padding:50px;
+
+    max-width:1000px;
+
+    margin:auto;
+
+}
+
+
+
+.posts-page h1 {
+
+    text-align:center;
+
+    font-size:50px;
+
+}
+
+
+
+.novo-post {
+
+
+    background:rgba(255,255,255,0.7);
+
+    padding:30px;
+
+    border-radius:20px;
+
+    margin:40px 0;
+
+
+}
+
+
+
+.novo-post form {
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+
+}
+
+
+
+.novo-post input,
+.novo-post textarea {
+
+
+    padding:12px;
+
+    border-radius:10px;
+
+    border:1px solid #aaa;
+
+
+}
+
+
+
+.novo-post textarea {
+
+    min-height:150px;
+
+}
+
+
+
+.novo-post button {
+
+
+    padding:12px;
+
+    border-radius:20px;
+
+    border:none;
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+.lista-posts {
+
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:30px;
+
+
+}
+
+
+
+.post-card {
+
+
+    background:rgba(255,255,255,0.75);
+
+
+    padding:25px;
+
+
+    border-radius:20px;
+
+
+    width:300px;
+
+
+}
+
+
+
+
+.post-card img {
+
+    max-width:100%;
+
+    border-radius:15px;
+
+}
+
+
+
+
+
+/* =========================
+   POST INDIVIDUAL
+========================= */
+
+
+/* remove as colunas laterais */
+
+.post-single {
+
+
+    width:750px;
+
+    max-width:90%;
+
+    margin:60px auto;
+
+
+}
+
+
+
+.post-single .post {
+
+
+    width:100%;
+
+    box-sizing:border-box;
+
+
+}
+
+
+
+
+
+/* =========================
+   COMENTARIOS
+========================= */
+
+
+.comentarios {
+
+
+    margin-top:30px;
+
+
+    background:
+
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,0.96),
+        rgba(210,240,255,0.85)
+    );
+
+
+    padding:35px;
+
+
+    border-radius:15px;
+
+
+    border:2px solid rgba(255,255,255,0.8);
+
+
+    box-shadow:
+
+    inset 0 4px 10px rgba(255,255,255,0.9),
+
+    0 8px 18px rgba(50,100,160,0.2);
+
+
+}
+
+
+
+.comentarios h2 {
+
+    text-align:center;
+
+}
+
+
+
+
+
+.comentario {
+
+
+    background:rgba(255,255,255,0.45);
+
+
+    padding:20px;
+
+
+    border-radius:12px;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+.comentario-form {
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:12px;
+
+
+}
+
+
+
+.comentario-form input,
+.comentario-form textarea {
+
+
+    width:100%;
+
+
+    box-sizing:border-box;
+
+
+    padding:12px;
+
+
+    border-radius:10px;
+
+
+    border:1px solid #b8c9e8;
+
+
+    font-family:inherit;
+
+
+}
+
+
+
+.comentario-form textarea {
+
+
+    height:120px;
+
+
+}
+
+
+
+.comentario-form button {
+
+
+    width:120px;
+
+
+    padding:10px;
+
+
+    border:none;
+
+
+    border-radius:10px;
+
+
+    background:#587bb8;
+
+
+    color:white;
+
+
+    cursor:pointer;
+
 
 }
 
@@ -292,13 +578,11 @@ body {
 
 .stamp {
 
-
     width:99px;
 
     height:56px;
 
     margin:5px;
-
 
     image-rendering:pixelated;
 
@@ -315,20 +599,14 @@ body {
 
 footer {
 
-
     text-align:center;
-
 
     padding:40px;
 
-
     margin-top:50px;
 
-
-    color:#36527a;
-
-
 }
+
 
 
 
@@ -347,11 +625,16 @@ footer {
         grid-template-columns:1fr;
 
 
+    }
+
+
+    .post-single {
+
+
         width:90%;
 
 
     }
-
 
 
     .site-header h1 {
@@ -365,130 +648,305 @@ footer {
 
 }
 
-/* POSTS */
+.navbar {
 
-.posts-page {
-    padding: 50px;
-    max-width: 1000px;
-    margin: auto;
-}
+    width:90%;
 
+    max-width:1200px;
 
-.posts-page h1 {
-    text-align: center;
-    font-size: 50px;
-}
+    margin:30px auto;
 
 
-.novo-post {
-
-    background: rgba(255,255,255,0.7);
-
-    padding: 30px;
-
-    border-radius: 20px;
-
-    margin: 40px 0;
-
-}
+    padding:18px;
 
 
-.novo-post form {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 15px;
-
-}
+    box-sizing:border-box;
 
 
-.novo-post input,
-.novo-post textarea {
+    display:flex;
 
-    padding: 12px;
+    justify-content:center;
 
-    border-radius: 10px;
-
-    border: 1px solid #aaa;
-
-    font-size: 16px;
-
-}
+    align-items:center;
 
 
-.novo-post textarea {
+    gap:20px;
 
-    min-height: 150px;
+
+
+    background:
+
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,0.95),
+        rgba(190,230,255,0.85)
+    );
+
+
+    border-radius:10px;
+
+
+    border:2px solid rgba(255,255,255,0.9);
+
+
+    box-shadow:
+
+    inset 0 4px 10px rgba(255,255,255,0.9),
+
+    0 8px 18px rgba(40,90,150,0.25);
+
+
+    backdrop-filter:blur(8px);
 
 }
 
 
-.novo-post button {
 
-    padding: 12px;
+/* =========================
+   BOTÕES INDIVIDUAIS
+========================= */
 
-    border-radius: 20px;
 
-    border: none;
+.nav-button {
 
-    cursor: pointer;
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    gap:8px;
+
+
+
+    min-width:120px;
+
+
+
+    padding:12px 22px;
+
+
+
+    background:
+
+
+    linear-gradient(
+
+        145deg,
+
+        white,
+
+        #d8f2ff
+
+    );
+
+
+
+    border-radius:6px;
+
+
+
+    border:
+
+    2px solid rgba(255,255,255,0.95);
+
+
+
+
+    box-shadow:
+
+
+    inset 0 3px 8px white,
+
+
+    0 5px 12px rgba(40,90,150,0.25);
+
+
+
+
+    color:#36527a;
+
+
+    text-decoration:none;
+
+
+
+    font-size:16px;
+
+
+
+    transition:0.25s;
+
+
 
 }
 
 
-.lista-posts {
 
-    display: flex;
 
-    flex-wrap: wrap;
 
-    gap: 30px;
+/* ICONE DOS BOTÕES */
+
+
+.nav-button img {
+
+
+    width:28px;
+
+
+    height:28px;
+
+
+    object-fit:contain;
+
+
+    image-rendering:pixelated;
+
 
 }
 
 
-.post-card {
 
-    background: rgba(255,255,255,0.75);
 
-    padding: 25px;
 
-    border-radius: 20px;
+/* TEXTO */
 
-    width: 300px;
+
+.nav-button span {
+
+
+    margin-top:2px;
+
 
 }
 
 
-.post-card img {
 
-    max-width: 100%;
 
-    border-radius: 15px;
+
+/* HOVER */
+
+
+.nav-button:hover {
+
+
+    transform:translateY(-6px);
+
+
+
+    box-shadow:
+
+
+    inset 0 4px 10px white,
+
+
+    0 12px 20px rgba(50,100,160,0.35);
+
+
 
 }
 
 
-header {
 
-    padding: 20px;
+
+
+/* MOBILE */
+
+
+@media(max-width:700px){
+
+
+    .navbar {
+
+
+        flex-wrap:wrap;
+
+
+    }
+
+
+    .nav-button {
+
+
+        min-width:100px;
+
+
+    }
+
+
+}
+.login-choice {
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:15px;
+
+
+    width:250px;
+
+
+    margin:20px auto;
+
+
+    padding:15px;
+
+
+    text-decoration:none;
+
+
+    color:#36527a;
+
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,0.95),
+        rgba(190,230,255,0.85)
+    );
+
+
+    border-radius:12px;
+
+
+    border:2px solid rgba(255,255,255,0.9);
+
+
+    box-shadow:
+
+    inset 0 3px 8px white,
+
+    0 6px 12px rgba(40,90,150,0.2);
+
+
+    transition:.2s;
 
 }
 
 
-nav {
 
-    display: flex;
+.login-choice img {
 
-    gap: 20px;
+    width:32px;
+
+    height:32px;
+
+    image-rendering:pixelated;
 
 }
 
 
-nav a {
 
-    text-decoration: none;
+.login-choice:hover {
+
+    transform:translateY(-4px);
 
 }

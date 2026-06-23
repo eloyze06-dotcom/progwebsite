@@ -23,7 +23,12 @@
         <h1>✦ posts ✦</h1>
 
 
-        <!-- FORMULÁRIO DE NOVO POST -->
+
+        <!-- FORMULÁRIO DE NOVO POST (APENAS ADMIN) -->
+
+
+        <% if(admin) { %>
+
 
         <section class="novo-post">
 
@@ -66,12 +71,18 @@
         </section>
 
 
+        <% } %>
+
+
+
+
 
 
         <!-- POSTS DO BANCO -->
 
 
         <section class="lista-posts">
+
 
 
             <% if(posts.length === 0) { %>
@@ -94,15 +105,26 @@
 
 
 
+
+
             <% posts.forEach(post => { %>
+
 
 
                 <article class="post-card">
 
 
+
                     <h2>
-                        <%= post.titulo %>
+
+                        <a href="/posts/<%= post._id %>">
+
+                            <%= post.titulo %>
+
+                        </a>
+
                     </h2>
+
 
 
                     <p>
@@ -111,41 +133,66 @@
 
 
 
+
+
                     <% if(post.imagem) { %>
+
 
                         <img 
                             src="<%= post.imagem %>"
                             alt="imagem do post"
                         >
 
+
                     <% } %>
 
 
 
+
+
                     <small>
+
                         <%= post.data.toLocaleDateString("pt-BR") %>
+
                     </small>
 
+
+
+
+                    <% if(admin) { %>
 
 
                     <br>
 
 
-                    <a href="/posts/apagar/<%= post._id %>">
-                        apagar
-                    </a>
+                    <form action="/posts/apagar/<%= post._id %>" method="POST">
+
+                        <button type="submit">
+                            apagar
+                        </button>
+
+                    </form>
+
+
+                    <% } %>
+
+
 
 
                 </article>
 
 
+
             <% }) %>
+
+
 
 
         </section>
 
 
     </main>
+
 
 
 

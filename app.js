@@ -9,11 +9,16 @@ const cors = require("cors");
 const session = require("express-session");
 
 
+
 const indexRouter = require("./routes/index");
 const postsRouter = require("./routes/posts");
+const adminRouter = require("./routes/admin");
+const usuariosRouter = require("./routes/usuarios");
+const comentariosRouter = require("./routes/comentarios");
 
 
 const app = express();
+
 
 
 
@@ -24,6 +29,8 @@ const app = express();
 app.set("views", path.join(__dirname, "views"));
 
 app.set("view engine", "ejs");
+
+
 
 
 
@@ -39,13 +46,21 @@ app.use(express.json());
 
 
 app.use(express.urlencoded({
+
     extended: false
+
 }));
 
 
 app.use(express.static(
+
     path.join(__dirname, "public")
+
 ));
+
+
+
+
 
 
 
@@ -63,10 +78,35 @@ app.use(session({
     saveUninitialized: false,
 
     cookie: {
+
         httpOnly: true
+
     }
 
 }));
+
+
+
+
+// mandar informações da sessão para o EJS
+
+app.use((req, res, next) => {
+
+
+    res.locals.admin = req.session.admin;
+
+
+    res.locals.usuario = req.session.usuario;
+
+
+    next();
+
+
+});
+
+
+
+
 
 
 
@@ -76,7 +116,22 @@ app.use(session({
 // =========================
 
 app.use("/", indexRouter);
+
+
+app.use("/", adminRouter);
+
+
+app.use("/", usuariosRouter);
+
+
 app.use("/posts", postsRouter);
+
+
+app.use("/", comentariosRouter);
+
+
+
+
 
 
 
@@ -87,9 +142,16 @@ app.use("/posts", postsRouter);
 
 app.use((req, res) => {
 
-    res.status(404).send("Página não encontrada");
+
+    res.status(404)
+        .send("Página não encontrada");
+
 
 });
+
+
+
+
 
 
 

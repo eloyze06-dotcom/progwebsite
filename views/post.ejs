@@ -1,0 +1,156 @@
+<%- include('partials/header', { title: post.titulo }) %>
+
+
+<div class="post-single">
+
+
+    <article class="post">
+
+
+        <h2>
+            <%= post.titulo %>
+        </h2>
+
+
+
+        <p>
+            <%= post.texto %>
+        </p>
+
+
+
+        <% if(post.imagem) { %>
+
+            <img 
+                src="<%= post.imagem %>"
+                class="post-image"
+            >
+
+        <% } %>
+
+
+
+        <small>
+            publicado em 
+            <%= post.data.toLocaleDateString("pt-BR") %>
+        </small>
+
+
+    </article>
+
+
+
+
+
+
+    <section class="comentarios post">
+
+
+        <h2>
+            ✦ comentários ✦
+        </h2>
+
+
+
+
+        <% if(comentarios.length === 0) { %>
+
+            <p>
+                ainda não tem comentários...
+            </p>
+
+        <% } %>
+
+
+
+
+
+        <% comentarios.forEach(comentario => { %>
+
+
+            <div class="comentario">
+
+
+                <strong>
+                    <%= comentario.nome %>
+                </strong>
+
+
+                <p>
+                    <%= comentario.texto %>
+                </p>
+
+
+                <small>
+                    <%= comentario.data.toLocaleDateString("pt-BR") %>
+                </small>
+
+<% if(admin) { %>
+
+<br>
+
+<a href="/comentarios/apagar/<%= comentario._id %>">
+    apagar
+</a>
+
+<% } %>
+
+            </div>
+
+
+        <% }) %>
+
+
+
+
+
+
+        <h3>
+            deixar comentário
+        </h3>
+
+<% if(usuario) { %>
+
+<p>
+    comentando como:
+    <strong><%= usuario.nome %></strong>
+</p>
+
+<% } %>
+
+
+
+        <form 
+            action="/posts/<%= post._id %>/comentarios"
+            method="POST"
+            class="comentario-form"
+        >
+
+            <textarea
+                name="texto"
+                placeholder="escreva algo..."
+                required
+            ></textarea>
+
+
+
+
+            <button>
+                comentar
+            </button>
+
+
+
+        </form>
+
+
+
+    </section>
+
+
+
+</div>
+
+
+
+<%- include('partials/footer') %>

@@ -5,10 +5,18 @@ const Post = require("../models/posts");
 
 
 
+
+// =========================
+// HOME
+// =========================
+router.get("/login", (req,res)=>{
+
+    res.render("login");
+
+});
 router.get("/", async (req, res) => {
 
     try {
-
 
         const posts = await Post.find()
             .sort({ data: -1 })
@@ -17,7 +25,9 @@ router.get("/", async (req, res) => {
 
 
         res.render("index", {
+
             posts: posts
+
         });
 
 
@@ -27,6 +37,7 @@ router.get("/", async (req, res) => {
 
         console.log(err);
 
+
         res.status(500)
             .send("Erro ao carregar página inicial");
 
@@ -34,6 +45,28 @@ router.get("/", async (req, res) => {
     }
 
 });
+
+
+
+
+
+// =========================
+// PÁGINA DE LOGIN
+// =========================
+
+router.get("/login", (req, res) => {
+
+
+    res.render("login");
+
+
+});
+
+
+
+
+
+module.exports = router;
 
 
 

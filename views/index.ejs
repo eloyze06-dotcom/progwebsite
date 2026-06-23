@@ -12,7 +12,38 @@
 
 </header>
 
+<nav class="navbar">
 
+    <a href="/" class="nav-button">
+        <img src="/images/home.png">
+        home
+    </a>
+
+
+    <a href="/posts" class="nav-button">
+        <img src="/images/posts.png">
+        posts
+    </a>
+
+
+    <a href="/galeria" class="nav-button">
+        <img src="/images/galeria.png">
+        galeria
+    </a>
+
+
+    <a href="/arquivo" class="nav-button">
+        <img src="/images/arquivo.png">
+        arquivo
+    </a>
+
+
+    <a href="/login" class="nav-button login-button">
+    <img src="/images/login.png">
+    login
+</a>
+
+</nav>
 
 
 <div class="blog-container">
@@ -90,8 +121,10 @@
 
 
                     <h2>
-                        <%= post.titulo %>
-                    </h2>
+    <a href="/posts/<%= post._id %>">
+        <%= post.titulo %>
+    </a>
+</h2>
 
 
 
