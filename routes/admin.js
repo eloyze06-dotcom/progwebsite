@@ -36,7 +36,6 @@ router.post("/loginadmin", (req, res) => {
 });
 
 
-
 // logout
 router.get("/logout", (req,res)=>{
 
@@ -44,7 +43,7 @@ router.get("/logout", (req,res)=>{
     req.session.destroy();
 
 
-    res.redirect("/login");
+    res.redirect("/loginadmin");
 
 
 });

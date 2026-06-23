@@ -1,48 +1,71 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <title>Login Admin - Lyrae</title>
-
-    <link rel="stylesheet" href="/stylesheets/style.css">
-
-</head>
+<%- include('partials/header', { title: 'login admin' }) %>
 
 
-<body>
+<div class="top-decoration"></div>
 
 
-<div class="box">
+<header class="site-header">
+
+    <h1>✦ login admin ✦</h1>
+
+    <p>área restrita do lyrae</p>
+
+</header>
 
 
-    <h1>✦ admin ✦</h1>
+
+<main class="post-single">
 
 
-    <form action="/login" method="POST">
+    <section class="post">
 
 
-        <input
-            type="password"
-            name="senha"
-            placeholder="senha"
-            required
+        <h2>
+            entrar como administrador
+        </h2>
+
+
+
+        <form
+            action="/loginadmin"
+            method="POST"
+            class="comentario-form"
         >
 
 
-        <button type="submit">
-            entrar
-        </button>
+            <input
+                type="password"
+                name="senha"
+                placeholder="senha de administrador"
+                required
+            >
 
 
-    </form>
+
+            <button type="submit">
+                entrar
+            </button>
 
 
-</div>
+        </form>
 
 
-</body>
 
-</html>
+    </section>
+
+
+</main>
+
+
+
+
+<footer>
+
+    ✦ lyrae ✦
+
+</footer>
+
+
+
+
+<%- include('partials/footer') %>
