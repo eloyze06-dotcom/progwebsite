@@ -1,15 +1,10 @@
 <%- include('partials/header', { title: 'lyrae' }) %>
 
-
 <div class="top-decoration"></div>
 
-
 <header class="site-header">
-
     <h1>✦ lyrae ✦</h1>
-
     <p>arte, pensamentos e tals</p>
-
 </header>
 
 <nav class="navbar">
@@ -19,152 +14,111 @@
         home
     </a>
 
-
     <a href="/posts" class="nav-button">
         <img src="/images/posts.png">
         posts
     </a>
-
 
     <a href="/galeria" class="nav-button">
         <img src="/images/galeria.png">
         galeria
     </a>
 
-
     <a href="/arquivo" class="nav-button">
         <img src="/images/arquivo.png">
         arquivo
     </a>
 
-
     <a href="/login" class="nav-button login-button">
-    <img src="/images/login.png">
-    login
-</a>
+        <img src="/images/login.png">
+        login
+    </a>
 
 </nav>
 
-
 <div class="blog-container">
 
+<aside>
+
+    <div class="box guestbook-box">
+
+        <img src="/images/guestbook1.png" class="guestbook-image">
+
+        <h2>
+            ✦ guestbook ✦
+        </h2>
+
+        <a href="/guestbook">
+            entrar
+        </a>
+
+    </div>
+
+    <div class="box">
+
+        <h2>
+            links
+        </h2>
+
+        <p><a href="#">favoritos</a></p>
+        <p><a href="#">inspirações</a></p>
+        <p><a href="#">recursos</a></p>
+
+    </div>
+
+</aside>
 
 
-    <!-- COLUNA ESQUERDA -->
+<main>
 
-    <aside>
+    <div class="post">
 
+        <h2>
+            bem-vindo ao lyrae
+        </h2>
 
-        <div class="box">
+        <p>
+            esse é meu cantinho de arte na internet.
+            aqui vou compartilhar desenhos, ideias,
+            inspirações e as besteiras que eu gosto.
+        </p>
 
-            <h2>menu</h2>
-
-            <p><a href="/">início</a></p>
-            <p><a href="#">sobre mim</a></p>
-            <p><a href="/posts">posts</a></p>
-            <p><a href="#">galeria</a></p>
-            <p><a href="#">arquivo</a></p>
-
-        </div>
-
+    </div>
 
 
-
-        <div class="box">
-
-            <h2>links</h2>
-
-            <p><a href="#">rabiscos</a></p>
-            <p><a href="#">inspirações</a></p>
-            <p><a href="#">favoritos</a></p>
-
-        </div>
-
-
-    </aside>
-
-
-
-
-
-    <!-- COLUNA CENTRAL -->
-
-    <main>
-
-
-
-        <div class="post">
-
-            <h2>bem-vindo ao lyrae</h2>
-
-            <p>
-                esse é meu cantinho de arte na internet.
-                aqui vou compartilhar desenhos, ideias,
-                inspirações e coisas que eu gosto.
-            </p>
-
-        </div>
-
-
-
-
-
-        <!-- POSTS DO MONGODB -->
+    <div class="posts-scroll">
 
         <% if(posts && posts.length > 0) { %>
 
-
             <% posts.forEach(post => { %>
-
 
                 <div class="post">
 
-
                     <h2>
-    <a href="/posts/<%= post._id %>">
-        <%= post.titulo %>
-    </a>
-</h2>
+                        <a href="/posts/<%= post._id %>">
+                            <%= post.titulo %>
+                        </a>
+                    </h2>
 
-
-
-                    <p>
-                        <%= post.texto %>
-                    </p>
-
-
-
-                    <% if(post.imagem) { %>
-
-                        <img 
-                            src="<%= post.imagem %>" 
-                            class="post-image"
-                            alt="imagem do post"
-                        >
-
-                    <% } %>
-
-
+                    <div class="post-conteudo">
+                        <%- post.conteudo || post.texto %>
+                    </div>
 
                     <small>
                         <%= post.data.toLocaleDateString("pt-BR") %>
                     </small>
 
-
                 </div>
-
 
             <% }) %>
 
-
-
         <% } else { %>
-
-
 
             <div class="post">
 
-                <h2>nenhum post ainda</h2>
+                <h2>
+                    nenhum post ainda
+                </h2>
 
                 <p>
                     em breve o lyrae vai ter posts ✦
@@ -172,98 +126,62 @@
 
             </div>
 
-
-
         <% } %>
 
+    </div>
+
+</main>
 
 
+<aside>
+
+    <div class="box">
+
+        <h2>
+            sobre mim
+        </h2>
+
+        <p>
+            oii! esse é meu blog pessoal
+            de arte.
+        </p>
+
+    </div>
 
 
-    </main>
+    <div class="box">
+
+        <h2>
+            categorias
+        </h2>
+
+        <p>sketchbook</p>
+        <p>design</p>
+        <p>inspo</p>
+
+    </div>
 
 
+    <div class="box">
 
+        <h2>
+            stamps
+        </h2>
 
+        <img src="/images/stamps/cinnamorollstamp.png" class="stamp">
 
+        <img src="/images/stamps/typos.gif" class="stamp">
 
+        <img src="/images/stamps/htmlsucks.png" class="stamp">
 
+    </div>
 
-
-    <!-- COLUNA DIREITA -->
-
-    <aside>
-
-
-
-        <div class="box">
-
-            <h2>sobre mim</h2>
-
-            <p>
-                oii! esse é meu blog pessoal
-                de arte.
-            </p>
-
-        </div>
-
-
-
-
-
-        <div class="box">
-
-            <h2>categorias</h2>
-
-            <p>sketchbook</p>
-            <p>design</p>
-            <p>inspo</p>
-
-        </div>
-
-
-
-
-
-
-
-
-        <div class="box">
-
-            <h2>stamps</h2>
-
-
-            <img src="/images/stamps/cinnamorollstamp.png" class="stamp">
-
-            <img src="/images/stamps/typos.gif" class="stamp">
-
-            <img src="/images/stamps/htmlsucks.png" class="stamp">
-
-
-        </div>
-
-
-
-
-    </aside>
-
-
-
+</aside>
 
 </div>
 
-
-
-
-
-
 <footer>
-
     ✦ lyrae - feito com carinho ✦
-
 </footer>
-
-
-
 
 <%- include('partials/footer') %>

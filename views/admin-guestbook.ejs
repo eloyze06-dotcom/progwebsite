@@ -1,0 +1,108 @@
+<%- include('partials/header', { title: 'guestbook admin' }) %>
+
+
+<div class="top-decoration"></div>
+
+
+<header class="site-header">
+
+    <h1>✦ mensagens ✦</h1>
+
+    <p>guestbook secreto do lyrae</p>
+
+</header>
+
+
+
+
+<main class="post-single">
+
+
+
+<section class="comentarios">
+
+
+
+    <% if(mensagens.length > 0) { %>
+
+
+
+        <% mensagens.forEach(msg => { %>
+
+
+
+            <div class="comentario">
+
+
+                <h3>
+
+                    <%= msg.nome %>
+
+                </h3>
+
+
+
+                <p>
+
+                    <%= msg.mensagem %>
+
+                </p>
+
+
+
+                <small>
+
+                    <%= msg.data.toLocaleDateString("pt-BR") %>
+
+                </small>
+
+
+
+            </div>
+
+
+
+
+        <% }) %>
+
+
+
+
+    <% } else { %>
+
+
+
+        <div class="comentario">
+
+            <p>
+                nenhuma mensagem ainda ♡
+            </p>
+
+        </div>
+
+
+
+    <% } %>
+
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
+<footer>
+
+    ✦ lyrae ✦
+
+</footer>
+
+
+
+
+<%- include('partials/footer') %>

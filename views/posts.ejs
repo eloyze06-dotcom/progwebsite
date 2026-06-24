@@ -4,99 +4,222 @@
 <head>
 
     <meta charset="UTF-8">
+
     <title>Posts - Lyrae</title>
+
 
     <link rel="stylesheet" href="/stylesheets/style.css">
 
+
+    <link 
+        href="https://cdn.quilljs.com/1.3.6/quill.snow.css" 
+        rel="stylesheet"
+    >
+
 </head>
+
 
 
 <body>
 
 
-    <%- include("partials/header") %>
 
-
-    <main class="posts-page">
-
-
-        <h1>✦ posts ✦</h1>
+<%- include("partials/header") %>
 
 
 
-        <!-- FORMULÁRIO DE NOVO POST (APENAS ADMIN) -->
 
 
-        <% if(admin) { %>
+<main class="posts-page">
 
 
-        <section class="novo-post">
 
-            <h2>Novo post</h2>
-
-
-            <form action="/posts/novo" method="POST">
+    <h1>✦ posts ✦</h1>
 
 
-                <input 
-                    type="text"
-                    name="titulo"
-                    placeholder="Título do post"
-                    required
-                >
 
 
-                <textarea
-                    name="texto"
-                    placeholder="Escreva o conteúdo..."
-                    required
-                ></textarea>
+
+    <% if(admin) { %>
 
 
-                <input
-                    type="text"
-                    name="imagem"
-                    placeholder="URL da imagem (opcional)"
-                >
+
+
+    <section class="novo-post">
+
+
+
+        <h2>Novo post</h2>
+
+
+
+
+
+        <form 
+            action="/posts/novo" 
+            method="POST"
+        >
+
+
+
+
+            <input 
+                type="text"
+                name="titulo"
+                placeholder="Título do post"
+                required
+            >
+
+
+
+
+
+
+            <div id="editor"></div>
+
+
+
+
+            <input
+                type="hidden"
+                name="conteudo"
+                id="conteudo"
+            >
+
+
+
+
+
+            <button type="submit">
+
+                Publicar
+
+            </button>
+
+
+
+
+        </form>
+
+
+
+
+    </section>
+
+
+
+
+
+    <% } %>
+
+
+
+
+
+
+
+
+
+    <section class="lista-posts">
+
+
+
+
+
+    <% if(posts.length === 0) { %>
+
+
+
+        <div class="post-card">
+
+
+            <h2>
+                nenhum post ainda
+            </h2>
+
+
+            <p>
+                em breve o lyrae vai ter posts ✦
+            </p>
+
+
+        </div>
+
+
+
+    <% } %>
+
+
+
+
+
+    <% posts.forEach(post => { %>
+
+
+
+
+
+        <article class="post-card">
+
+
+
+
+
+            <h2>
+
+                <a href="/posts/<%= post._id %>">
+
+                    <%= post.titulo %>
+
+                </a>
+
+
+            </h2>
+
+
+
+
+
+            <div class="post-content">
+
+
+                <%- post.conteudo %>
+
+
+            </div>
+
+
+
+            <small>
+
+                <%= post.data.toLocaleDateString("pt-BR") %>
+
+
+            </small>
+
+
+
+            <% if(admin) { %>
+
+
+
+            <form 
+                action="/posts/apagar/<%= post._id %>" 
+                method="POST"
+            >
 
 
                 <button type="submit">
-                    Publicar
+
+                    apagar
+
                 </button>
+
 
 
             </form>
 
 
-        </section>
-
-
-        <% } %>
-
-
-
-
-
-
-        <!-- POSTS DO BANCO -->
-
-
-        <section class="lista-posts">
-
-
-
-            <% if(posts.length === 0) { %>
-
-
-                <div class="post-card">
-
-                    <h2>nenhum post ainda</h2>
-
-                    <p>
-                        em breve o lyrae vai ter posts ✦
-                    </p>
-
-                </div>
 
 
             <% } %>
@@ -105,100 +228,202 @@
 
 
 
-
-
-            <% posts.forEach(post => { %>
-
-
-
-                <article class="post-card">
-
-
-
-                    <h2>
-
-                        <a href="/posts/<%= post._id %>">
-
-                            <%= post.titulo %>
-
-                        </a>
-
-                    </h2>
-
-
-
-                    <p>
-                        <%= post.texto %>
-                    </p>
+        </article>
 
 
 
 
 
-                    <% if(post.imagem) { %>
+    <% }) %>
+
+    </section>
 
 
-                        <img 
-                            src="<%= post.imagem %>"
-                            alt="imagem do post"
-                        >
+</main>
 
 
-                    <% } %>
+<%- include("partials/footer") %>
+
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+<script>
+
+
+const quill = new Quill("#editor", {
+
+
+    theme: "snow",
+
+
+    modules: {
+
+
+        toolbar: {
+
+
+            container: [
+
+
+                ["bold", "italic", "underline"],
+
+
+                [
+                    {
+                        header: 1
+                    },
+
+                    {
+                        header: 2
+                    }
+
+                ],
+
+
+                [
+                    {
+                        list: "ordered"
+                    },
+
+                    {
+                        list: "bullet"
+                    }
+
+                ],
+
+
+                [
+                    "image"
+                ]
+
+            ],
+
+
+
+            handlers: {
+
+
+                image: function(){
+
+
+                    const input = document.createElement("input");
+
+
+                    input.setAttribute("type", "file");
+
+
+                    input.setAttribute("accept", "image/*");
+
+
+                    input.click();
 
 
 
 
 
-                    <small>
-
-                        <%= post.data.toLocaleDateString("pt-BR") %>
-
-                    </small>
+                    input.onchange = async () => {
 
 
 
-
-                    <% if(admin) { %>
-
-
-                    <br>
+                        const arquivo = input.files[0];
 
 
-                    <form action="/posts/apagar/<%= post._id %>" method="POST">
 
-                        <button type="submit">
-                            apagar
-                        </button>
-
-                    </form>
+                        const formData = new FormData();
 
 
-                    <% } %>
+                        formData.append(
+                            "imagem",
+                            arquivo
+                        );
 
 
 
 
-                </article>
+
+                        const resposta = await fetch(
+                            "/uploads/imagem",
+                            {
+
+                                method: "POST",
+
+                                body: formData
+
+                            }
+                        );
 
 
 
-            <% }) %>
+
+
+                        const dados = await resposta.json();
 
 
 
 
-        </section>
 
-
-    </main>
-
+                        const range = quill.getSelection();
 
 
 
-    <%- include("partials/footer") %>
+                        quill.insertEmbed(
 
+                            range.index,
+
+                            "image",
+
+                            dados.url
+
+                        );
+
+
+
+                    };
+
+
+
+                }
+
+
+            }
+
+
+        }
+
+
+    }
+
+
+});
+
+
+
+
+
+
+
+const form = document.querySelector("form");
+
+
+
+form.addEventListener("submit", function(){
+
+
+
+    document.querySelector("#conteudo").value =
+        quill.root.innerHTML;
+
+
+
+});
+
+
+
+</script>
+
+</script>
 
 </body>
+
 
 </html>

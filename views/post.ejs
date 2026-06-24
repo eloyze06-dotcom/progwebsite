@@ -13,10 +13,11 @@
 
 
 
-        <p>
-            <%= post.texto %>
-        </p>
+       <div class="post-conteudo">
 
+    <%- post.conteudo || post.texto %>
+
+</div>
 
 
         <% if(post.imagem) { %>

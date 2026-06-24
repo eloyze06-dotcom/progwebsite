@@ -15,7 +15,9 @@ const postsRouter = require("./routes/posts");
 const adminRouter = require("./routes/admin");
 const usuariosRouter = require("./routes/usuarios");
 const comentariosRouter = require("./routes/comentarios");
-
+const guestbookRouter = require("./routes/guestbook");
+const uploadsRouter = require("./routes/uploads");
+const galeriaRouter = require("./routes/galeria");
 
 const app = express();
 
@@ -117,20 +119,19 @@ app.use((req, res, next) => {
 
 app.use("/", indexRouter);
 
-
 app.use("/", adminRouter);
-
 
 app.use("/", usuariosRouter);
 
-
 app.use("/posts", postsRouter);
-
 
 app.use("/", comentariosRouter);
 
+app.use("/", guestbookRouter);
 
+app.use("/uploads", uploadsRouter);
 
+app.use("/", galeriaRouter);
 
 
 

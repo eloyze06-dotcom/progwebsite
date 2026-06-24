@@ -9,6 +9,7 @@ exports.listarPosts = async (req, res) => {
 
     try {
 
+
         console.log("entrei na rota de posts");
 
 
@@ -50,7 +51,6 @@ exports.listarPosts = async (req, res) => {
 
 
 
-
 // criar novo post (ADMIN)
 exports.criarPost = async (req, res) => {
 
@@ -66,15 +66,19 @@ exports.criarPost = async (req, res) => {
 
 
 
+
         const novoPost = new Post({
+
 
             titulo: req.body.titulo,
 
-            texto: req.body.texto,
 
-            imagem: req.body.imagem || null
+            conteudo: req.body.conteudo
+
+
 
         });
+
 
 
 
@@ -84,7 +88,9 @@ exports.criarPost = async (req, res) => {
 
 
 
+
         res.redirect("/posts");
+
 
 
 
@@ -98,9 +104,11 @@ exports.criarPost = async (req, res) => {
         res.status(500)
             .send("Erro ao criar post");
 
+
     }
 
 };
+
 
 
 
@@ -125,12 +133,15 @@ exports.apagarPost = async (req, res) => {
 
 
 
+
         await Post.findByIdAndDelete(req.params.id);
 
 
 
 
+
         res.redirect("/posts");
+
 
 
 
@@ -159,6 +170,7 @@ exports.apagarPost = async (req, res) => {
 
 
 
+
 // mostrar um post específico
 exports.verPost = async (req, res) => {
 
@@ -171,6 +183,7 @@ exports.verPost = async (req, res) => {
 
 
 
+
         if (!post) {
 
 
@@ -179,6 +192,8 @@ exports.verPost = async (req, res) => {
 
 
         }
+
+
 
 
 
@@ -203,15 +218,18 @@ exports.verPost = async (req, res) => {
 
 
 
+
         res.render("post", {
 
 
             post: post,
 
+
             comentarios: comentarios
 
 
         });
+
 
 
 

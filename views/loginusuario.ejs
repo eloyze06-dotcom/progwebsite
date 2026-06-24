@@ -1,72 +1,87 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <title>Login - Lyrae</title>
-
-    <link rel="stylesheet" href="/stylesheets/style.css">
-
-</head>
+<%- include('partials/header', { title: 'login usuario' }) %>
 
 
-<body>
+<div class="top-decoration"></div>
 
 
-<div class="box">
-
+<header class="site-header">
 
     <h1>✦ login ✦</h1>
 
+    <p>entre na sua conta do lyrae</p>
+
+</header>
 
 
-    <form action="/loginusuario" method="POST">
+
+<main class="post-single">
+
+
+    <section class="post">
+
+
+        <h2>
+            entrar como usuário
+        </h2>
 
 
 
-        <input
-            type="email"
-            name="email"
-            placeholder="seu email"
-            required
+        <form
+            action="/loginusuario"
+            method="POST"
+            class="comentario-form"
         >
 
 
-
-        <input
-            type="password"
-            name="senha"
-            placeholder="sua senha"
-            required
-        >
-
-
-
-        <button type="submit">
-            entrar
-        </button>
+            <input
+                type="email"
+                name="email"
+                placeholder="seu email"
+                required
+            >
 
 
 
-    </form>
+            <input
+                type="password"
+                name="senha"
+                placeholder="sua senha"
+                required
+            >
 
 
 
-
-    <p>
-        ainda não tem conta?
-        <a href="/cadastro">
-            criar conta
-        </a>
-    </p>
+            <button type="submit">
+                entrar
+            </button>
 
 
+        </form>
 
-</div>
 
 
-</body>
+        <p style="margin-top:25px;">
+            ainda não tem conta?
+            <a href="/cadastro">
+                criar conta
+            </a>
+        </p>
 
-</html>
+
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    ✦ lyrae ✦
+
+</footer>
+
+
+
+<%- include('partials/footer') %>

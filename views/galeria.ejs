@@ -1,0 +1,101 @@
+<%- include('partials/header', { title: 'galeria' }) %>
+
+
+
+<div class="galeria-page">
+
+
+
+    <h1>
+        ✦ galeria ✦
+    </h1>
+
+
+
+
+
+    <% if(usuario || admin) { %>
+
+    <section class="nova-galeria">
+
+
+        <h2>
+            adicionar desenho
+        </h2>
+
+
+
+        <form 
+            action="/galeria/upload"
+            method="POST"
+            enctype="multipart/form-data"
+        >
+
+
+            <input
+                type="file"
+                name="imagem"
+                accept="image/*"
+                required
+            >
+
+
+
+            <button>
+                enviar
+            </button>
+
+
+        </form>
+
+
+    </section>
+
+    <% } %>
+
+
+
+
+
+
+
+    <section class="galeria-grid">
+
+
+
+        <% imagens.forEach(img => { %>
+
+
+
+            <div class="galeria-item">
+
+
+
+                <img 
+                    src="<%= img.imagem %>"
+                    alt="desenho"
+                >
+
+
+
+            </div>
+
+
+
+        <% }) %>
+
+
+
+
+    </section>
+
+
+
+
+
+</div>
+
+
+
+
+<%- include('partials/footer') %>

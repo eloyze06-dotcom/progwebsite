@@ -1,0 +1,95 @@
+<%- include('partials/header', { title: 'guestbook' }) %>
+
+
+<div class="top-decoration"></div>
+
+
+<header class="site-header">
+
+    <h1>✦ guestbook ✦</h1>
+
+</header>
+
+
+
+
+<main class="post-single">
+
+
+    <section class="post">
+
+
+        <h2>
+            escrever mensagem
+        </h2>
+
+
+
+        <form 
+            action="/guestbook"
+            method="POST"
+            class="comentario-form"
+        >
+
+
+
+            <input
+
+                type="text"
+
+                name="nome"
+
+                placeholder="seu nome"
+
+                required
+
+            >
+
+
+
+
+
+            <textarea
+
+                name="mensagem"
+
+                placeholder="sua mensagem ♡"
+
+                required
+
+            ></textarea>
+
+
+
+
+
+            <button type="submit">
+
+                enviar
+
+            </button>
+
+
+
+        </form>
+
+
+
+    </section>
+
+
+</main>
+
+
+
+
+<footer>
+
+    ✦ lyrae ✦
+
+</footer>
+
+
+
+
+<%- include('partials/footer') %>
