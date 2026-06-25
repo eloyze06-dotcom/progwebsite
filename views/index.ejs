@@ -7,27 +7,32 @@
     <p>arte, pensamentos e tals</p>
 </header>
 
+
 <nav class="navbar">
 
     <a href="/" class="nav-button">
-        <img src="/images/home.png">
+        <img src="/images/cinna.gif">
         home
     </a>
+
 
     <a href="/posts" class="nav-button">
         <img src="/images/posts.png">
         posts
     </a>
 
+
     <a href="/galeria" class="nav-button">
         <img src="/images/galeria.png">
         galeria
     </a>
 
+
     <a href="/arquivo" class="nav-button">
         <img src="/images/arquivo.png">
         arquivo
     </a>
+
 
     <a href="/login" class="nav-button login-button">
         <img src="/images/login.png">
@@ -36,46 +41,108 @@
 
 </nav>
 
+
+
 <div class="blog-container">
+
+
 
 <aside>
 
+
     <div class="box guestbook-box">
 
-        <img src="/images/guestbook1.png" class="guestbook-image">
+        <img src="/images/guestbook1.png" class="box-image">
+
 
         <h2>
             ✦ guestbook ✦
         </h2>
 
+
         <a href="/guestbook">
             entrar
         </a>
 
+
     </div>
 
+
+
+
     <div class="box">
+
 
         <h2>
             links
         </h2>
 
-        <p><a href="#">favoritos</a></p>
-        <p><a href="#">inspirações</a></p>
-        <p><a href="#">recursos</a></p>
+
+
+        <p>
+            favoritos
+        </p>
+
+
+
+        <div class="favoritos-stamps">
+
+
+            <a href="https://sound-match-rho.vercel.app/" target="_blank">
+                <img src="/images/favoritos/cat2.png">
+            </a>
+
+
+            <a href="https://alexandria-nkt3.onrender.com" target="_blank">
+                <img src="/images/favoritos/ev.gif">
+            </a>
+
+
+            <a href="https://tastefy-five.vercel.app/about" target="_blank">
+                <img src="/images/favoritos/crackcocaine.png">
+            </a>
+
+
+        </div>
+
+
+
+
+        <p>
+            <a href="/posts/6a3c6f519851e936a7023080">
+                inspirações
+            </a>
+        </p>
+
+
+
+        <p>
+            <a href="https://foollovers.com/mat/index.html" target="_blank">
+                recursos
+            </a>
+        </p>
+
 
     </div>
+
 
 </aside>
 
 
+
+
+
+
 <main>
 
+
     <div class="post">
+
 
         <h2>
             bem-vindo ao lyrae
         </h2>
+
 
         <p>
             esse é meu cantinho de arte na internet.
@@ -83,16 +150,23 @@
             inspirações e as besteiras que eu gosto.
         </p>
 
+
     </div>
+
+
 
 
     <div class="posts-scroll">
 
+
         <% if(posts && posts.length > 0) { %>
+
 
             <% posts.forEach(post => { %>
 
+
                 <div class="post">
+
 
                     <h2>
                         <a href="/posts/<%= post._id %>">
@@ -100,88 +174,150 @@
                         </a>
                     </h2>
 
+
+
                     <div class="post-conteudo">
+
                         <%- post.conteudo || post.texto %>
+
                     </div>
 
+
+
                     <small>
+
                         <%= post.data.toLocaleDateString("pt-BR") %>
+
                     </small>
+
 
                 </div>
 
+
             <% }) %>
+
+
 
         <% } else { %>
 
+
+
             <div class="post">
+
 
                 <h2>
                     nenhum post ainda
                 </h2>
 
+
                 <p>
                     em breve o lyrae vai ter posts ✦
                 </p>
 
+
             </div>
+
+
 
         <% } %>
 
+
     </div>
+
+
 
 </main>
 
 
+
+
+
+
+
+
 <aside>
 
+
+
     <div class="box">
+
+
+        <img src="/images/cinna.gif" class="box-image">
+
 
         <h2>
             sobre mim
         </h2>
+
 
         <p>
             oii! esse é meu blog pessoal
             de arte.
         </p>
 
+
     </div>
 
 
+
+
+
     <div class="box">
+
 
         <h2>
             categorias
         </h2>
 
-        <p>sketchbook</p>
-        <p>design</p>
-        <p>inspo</p>
+
+        <p>
+            sketchbook
+        </p>
+
 
     </div>
 
 
+
+
+
     <div class="box">
+
 
         <h2>
             stamps
         </h2>
 
+
         <img src="/images/stamps/cinnamorollstamp.png" class="stamp">
+
 
         <img src="/images/stamps/typos.gif" class="stamp">
 
+
         <img src="/images/stamps/htmlsucks.png" class="stamp">
+
 
     </div>
 
+
+
 </aside>
+
+
 
 </div>
 
+
+
+
+
 <footer>
+
     ✦ lyrae - feito com carinho ✦
+
 </footer>
+
+
 
 <%- include('partials/footer') %>
