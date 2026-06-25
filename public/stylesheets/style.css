@@ -1106,3 +1106,22 @@ input[type="file"]::file-selector-button:hover{
     margin:0 auto 15px;
 
 }
+
+@media(max-width:900px){
+
+    .blog-container {
+
+        width:95%;
+        grid-template-columns:1fr;
+
+    }
+
+    .post,
+    .box {
+
+        width:100%;
+        box-sizing:border-box;
+
+    }
+
+}
