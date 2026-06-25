@@ -94,14 +94,17 @@ router.post("/loginusuario", async (req, res) => {
 
 
 
-        req.session.usuario = {
+        // remove acesso de admin caso exista
+req.session.admin = false;
 
-            id: usuario._id,
 
-            nome: usuario.nome
+req.session.usuario = {
 
-        };
+    id: usuario._id,
 
+    nome: usuario.nome
+
+};
 
 
         res.redirect("/");
@@ -131,9 +134,10 @@ router.get("/logoutusuario", (req, res) => {
 
     delete req.session.usuario;
 
+    req.session.admin = false;
+
 
     res.redirect("/");
-
 
 
 });

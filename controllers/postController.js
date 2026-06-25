@@ -59,7 +59,7 @@ exports.criarPost = async (req, res) => {
 
         if (!req.session.admin) {
 
-            return res.redirect("/login");
+            return res.redirect("/loginadmin");
 
         }
 

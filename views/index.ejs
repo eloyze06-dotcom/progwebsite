@@ -52,20 +52,26 @@
 
     <div class="box guestbook-box">
 
-        <img src="/images/guestbook1.png" class="box-image">
+    <img src="/images/guestbook1.png" class="guestbook-image">
+
+    <h2>
+        ✦ guestbook ✦
+    </h2>
+
+    <a href="/guestbook">
+        entrar
+    </a>
 
 
-        <h2>
-            ✦ guestbook ✦
-        </h2>
+    <% if(admin) { %>
 
-
-        <a href="/guestbook">
-            entrar
+        <a href="/admin/guestbook">
+            ver mensagens
         </a>
 
+    <% } %>
 
-    </div>
+</div>
 
 
 
@@ -94,12 +100,12 @@
 
 
             <a href="https://alexandria-nkt3.onrender.com" target="_blank">
-                <img src="/images/favoritos/ev.gif">
+                <img src="/images/favoritos/sweets.gif">
             </a>
 
 
             <a href="https://tastefy-five.vercel.app/about" target="_blank">
-                <img src="/images/favoritos/crackcocaine.png">
+                <img src="/images/favoritos/sharks.png">
             </a>
 
 
@@ -237,30 +243,36 @@
 
 <aside>
 
+<div class="box sobre-mim">
 
 
-    <div class="box">
+    <img 
+        src="/images/cinna.gif"
+        alt="sobre mim"
+        class="sobre-imagem"
+    >
 
 
-        <img src="/images/cinna.gif" class="box-image">
+    <h2>
+        sobre mim
+    </h2>
 
 
-        <h2>
-            sobre mim
-        </h2>
+    <p>
+        oii! esse é meu blog pessoal de arte.
+    </p>
 
 
-        <p>
-            oii! esse é meu blog pessoal
-            de arte.
-        </p>
+    <% if(admin) { %>
+
+        <a href="/posts/novo" class="admin-button">
+            ✦ novo post ✦
+        </a>
+
+    <% } %>
 
 
-    </div>
-
-
-
-
+</div>
 
     <div class="box">
 
@@ -295,7 +307,7 @@
         <img src="/images/stamps/typos.gif" class="stamp">
 
 
-        <img src="/images/stamps/htmlsucks.png" class="stamp">
+        <img src="/images/stamps/shinymew.gif" class="stamp">
 
 
     </div>

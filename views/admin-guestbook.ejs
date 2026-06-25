@@ -1,8 +1,6 @@
 <%- include('partials/header', { title: 'guestbook admin' }) %>
 
-
 <div class="top-decoration"></div>
-
 
 <header class="site-header">
 
@@ -13,87 +11,62 @@
 </header>
 
 
-
-
 <main class="post-single">
 
+    <section class="comentarios post">
+
+        <h2>
+            ✦ guestbook ✦
+        </h2>
 
 
-<section class="comentarios">
+        <% if(mensagens.length > 0) { %>
 
 
-
-    <% if(mensagens.length > 0) { %>
-
+            <% mensagens.forEach(msg => { %>
 
 
-        <% mensagens.forEach(msg => { %>
+                <div class="comentario">
 
+                    <h3>
+                        <%= msg.nome %>
+                    </h3>
+
+
+                    <p>
+                        <%= msg.mensagem %>
+                    </p>
+
+
+                    <small>
+                        <%= msg.data.toLocaleDateString("pt-BR") %>
+                    </small>
+
+
+                </div>
+
+
+            <% }) %>
+
+
+        <% } else { %>
 
 
             <div class="comentario">
 
-
-                <h3>
-
-                    <%= msg.nome %>
-
-                </h3>
-
-
-
                 <p>
-
-                    <%= msg.mensagem %>
-
+                    nenhuma mensagem ainda ♡
                 </p>
-
-
-
-                <small>
-
-                    <%= msg.data.toLocaleDateString("pt-BR") %>
-
-                </small>
-
-
 
             </div>
 
 
+        <% } %>
 
 
-        <% }) %>
-
-
-
-
-    <% } else { %>
-
-
-
-        <div class="comentario">
-
-            <p>
-                nenhuma mensagem ainda ♡
-            </p>
-
-        </div>
-
-
-
-    <% } %>
-
-
-
-</section>
-
-
+    </section>
 
 </main>
-
-
-
 
 
 <footer>
@@ -101,8 +74,6 @@
     ✦ lyrae ✦
 
 </footer>
-
-
 
 
 <%- include('partials/footer') %>

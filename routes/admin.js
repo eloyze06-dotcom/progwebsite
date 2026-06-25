@@ -21,10 +21,12 @@ router.post("/loginadmin", (req, res) => {
     if (senha === process.env.ADMIN_PASSWORD) {
 
 
+        req.session.usuario = null;
+
         req.session.admin = true;
 
 
-        return res.redirect("/posts");
+        return res.redirect("/");
 
 
     }
